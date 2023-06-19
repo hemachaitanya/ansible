@@ -1,0 +1,7 @@
+[ubuntu]
+172.31.84.78 package_name=apache2
+172.31.83.42 package_name=apache2
+
+
+[redhat]
+172.31.90.117 package_name=httpd

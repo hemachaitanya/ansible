@@ -1,0 +1,13 @@
+---
+- name: inastall httpd on redhat
+  hosts: all
+  become: yes
+  tasks:
+    ansible.builtin.yum:
+      name: httpd
+      state: present
+      update_cache: true
+      
+
+
+   

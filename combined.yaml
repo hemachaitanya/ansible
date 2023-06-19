@@ -1,0 +1,14 @@
+---
+- name: install apache
+  hosts: all
+  become: yes
+  tasks:
+    - name: installing apache 
+      ansible.builtin.package:
+        name: "{{ package_name }}"
+        update_cache: true
+        state: present
+    
+      
+
+
