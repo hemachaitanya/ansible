@@ -1,0 +1,15 @@
+---
+- name: install metric beat on ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    - name: download url
+      ansible.builtin.get_url:
+        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+    - name: install transport
+      ansible.builtin.apt:
+        name: apt-transport-https
+        state: present
+    - name: printting command
+      ansible.builtin.copy:
+      msg: deb https://artif
