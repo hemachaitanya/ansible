@@ -1,0 +1,22 @@
+---
+- name: install java17 on ubuntu
+  hosts: all
+  become: yes
+  tasks: 
+    - name: install openjdk-17-jdk
+      ansible.builtin.apt:
+        name: openjdk-17-jdk
+        update_cache: true
+        state: present
+
+---
+- name: install java-17-openjdk on redhat
+  hosts: all
+  become: yes
+  tasks:
+    - name: install java17
+      ansible.builtin.yum:
+        name: java-17-openjdk
+        update_cache: true
+        state: present
+        

@@ -3,10 +3,11 @@
   hosts: all
   become: yes
   tasks:
-    ansible.builtin.yum:
-      name: httpd
-      state: present
-      update_cache: true
+    - name: install apache2
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+        update_cache: true
       
 
 

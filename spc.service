@@ -1,0 +1,16 @@
+[Unit]
+Description=Spring Pet Clinic
+After=syslog.target
+
+[Service]
+User=c
+ExecStart=/usr/bin/java -jar /spring-petclinic/target/spring-petclinic-3.1.0-SNAPSHOT.jar
+SuccessExitStatus=143
+Restart=always
+RestartSec=30
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=spring-pet-clinic
+
+[Install]
+WantedBy=multi-user.target

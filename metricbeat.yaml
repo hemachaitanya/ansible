@@ -3,13 +3,31 @@
   hosts: all
   become: yes
   tasks:
-    - name: download url
-      ansible.builtin.get_url:
-        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-    - name: install transport
+    - name: download url command
+      ansible.builtin.shell:
+        cmd: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+    - name: install apt transport
       ansible.builtin.apt:
         name: apt-transport-https
+        update_cache: true
         state: present
-    - name: printting command
-      ansible.builtin.copy:
-      msg: deb https://artif
+    - name: print command
+      ansible.builtin.shell:
+        cmd: echo "deb https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list
+    - name: echo command
+      ansible.builtin.shell:
+        cmd: echo "deb https://artifacts.elastic.co/packages/oss-8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list
+    - name: install metric beat on ubuntu
+      ansible.builtin.apt:
+        name: metricbeat
+        update_cache: true
+        state: present
+    - name: system enable
+      ansible.builtin.systemd:
+        name: metricbeat
+        enabled: false
+        state: started
+     
+      
+    
+

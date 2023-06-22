@@ -1,0 +1,21 @@
+---
+- name: install nginx on ubuntu
+  hosts: all
+  become: yes
+  tasks: 
+    - name: install nginx on ubuntu 22.04
+      ansible.builtin.apt:
+        name: nginx
+        update_cache: true
+        state: present
+
+---
+- name: install nginx on RHAT
+  hosts: all
+  become: yes
+  tasks: 
+    - name: install nginx on RHAT 22.04
+      ansible.builtin.yum:
+        name: nginx
+        update_cache: true
+        state: present

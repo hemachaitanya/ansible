@@ -1,0 +1,46 @@
+---
+- name: game of life application package
+  hosts: all
+  become: yes
+  tasks:
+    - name: install prerequisites for game of life applicatin
+      ansible.builtin.apt:
+        name: 
+          - openjdk-17-jdk
+          - maven
+        update_cache: true
+        state: present
+    - name: git clone 
+      ansible.builtin.git:
+        dest: /home/c/gol
+        repo: https://github.com/hemachaitanya/game-of-life.git
+        update: false
+    - name: change permssions gol to adduser
+      ansible.builtin.file:
+        path : /home/c/gol/pom.xml
+        group: c
+        owner: c
+        mode: u=rwx,g=rwx,o=rwx
+    - name: find the package if gameoflife is already packed
+      ansible.builtin.stat:
+        path: /home/c/gol/gameoflife-web/target/gameoflife.war
+      register: gol
+    - name: build package
+      ansible.builtin.command:
+        chdir: gol
+        cmd: mvn package -U -Dmaven.test.failure.ignore=true
+      when: not gol.stat.exists
+    - name: gol service file 
+      ansible.builtin.service:
+        name: gol.service
+        state: started
+    
+         
+      
+
+        
+
+
+
+
+      

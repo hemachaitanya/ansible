@@ -1,0 +1,36 @@
+---
+- name: install lamp-stack o redhat
+  hosts: all
+  become: yes
+  tasks:
+    - name: install httpd
+      ansible.builtin.yum:
+        name: httpd
+        update_cache: true
+        state: present
+    - name: enable the httpd
+      ansible.builtin.systemd:
+        name: httpd
+        enabled: true
+    - name: start the httpd
+      ansible.builtin.systemd:
+        name: httpd
+        state: started
+    - name: install php
+      ansible.builtin.yum:
+        name: php
+        update_cache: true
+        state: present
+    - name: copy the info.php
+      ansible.builtin.copy:
+        src: info.php
+        dest: /var/www/html/info.php
+    - name: restart php
+      ansible.builtin.systemd:
+        name: httpd
+        state: restarted
+
+        
+        
+
+     
