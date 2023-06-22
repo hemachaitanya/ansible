@@ -128,3 +128,44 @@ where we mention some script/plugin which will dynamically find out the nodes to
 * mvnw spring-boot:run
 
 * http://publicip:8080/swagger-ui.html
+
+###  Facts
+
+* ansible collects information about the node on which it is executing by the help of module called as setup
+
+* Ansible playbook by default collects information about nodes where it is executing, we can use this with the help of variables
+
+* Collecting information can be disabled as well
+
+---
+- name: do some thing
+  hosts: all
+  gather_facts: no
+  ...
+  ...
+---
+
+* In the playbook the facts will be collected and will be available in a special variables " ansible_facts " as shown in the below play book
+
+---
+- name: facts will be available
+  hosts: all
+  become: no
+  tasks:
+    - name: print OS details
+      ansible.builtin.debug:
+        msg: "hemachaitanya"
+        var: ansible_default_ipv4
+    - name: same info
+      ansible.builtin.debug:
+        var: ansible_facts["default_ipv4"]
+---
+
+* conditional reference for ansible playbook
+
+<https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html>
+
+* 
+
+
+
