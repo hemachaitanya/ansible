@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: install apache2 
-      ansible.bultin.apt:
+      ansible.builtin.apt:
         name: apache2
         update_cache: true
         state: present
@@ -56,5 +56,5 @@
       ansible.builtin.systemd:
         name: apache2
         state: restarted
-        
+
   
