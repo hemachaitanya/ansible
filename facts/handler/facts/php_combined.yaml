@@ -1,6 +1,7 @@
 ---
 - name: install php
-  hosts: ubuntu
+  hosts: u:wq!
+  buntu
   become: yes
   tasks:
     - name: install apache2 
@@ -20,7 +21,7 @@
         - restart apache2
       when: ansible_facts ['os_family'] == 'Ubuntu'
     - name: copy info.php file
-      ansible.builtn.copy:
+      ansible.builtin.copy:
         src: info.php
         dest: /var/www/html/info.php
       notify:
@@ -32,6 +33,12 @@
         update_cache: true
         state: present
       when: ansible_facts ['os_family'] == 'RedHat'
+    - name: start httpd server
+      ansible.builtin.systemd: 
+        name: httpd
+        enabled: yes
+        state: started
+      when: ansible_facts ['os_family'] = 'RedHat'
     - name: install php on redhat
       ansible.builtin.yum:
         name: php
@@ -40,7 +47,7 @@
       notify: 
         - restart apache
       when: ansible_facts ['os_family'] == 'RedHat'
-    - name: copy info php
+    - name: copy info-php on redhat
       ansible.builtin.copy:
         src: info.php
         dest: /var/www/html/info.php
