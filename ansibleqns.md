@@ -176,7 +176,20 @@ complex process.
 
     * Static includes are not subject to most directives. For example, loops or conditionals are applied instead to each inherited task.
 
-#### Why Ansible Roles?
+### Why Ansible Roles?
+
+   * To create ansible role by using these below command
+
+    <ansible-galaxy init <role_name>>
+
+    ![preview](./images/6.png)
+
+   * To install role by using these below command
+
+   < ansible-galaxy install robertdebock.mysql>
+
+    ![ppp](./images/7.png)
+
 
 Roles play an important part in breaking the complex Ansible Playbooks, the core component of any Ansible configuration, into easy to reuse multiple files. 
 * With Ansible Roles you can:
@@ -184,29 +197,14 @@ Roles play an important part in breaking the complex Ansible Playbooks, the core
 * Bundle automation content and make it reusable
 
 * Group multiple sets of tasks in an effective manner
+
 * Modify and reduce syntax errors
+
 * Release modules independent of Ansible Core releases
+
 * Ansible Roles are equivalent to modules in Puppet and Cookbooks in Chef.
 
-### The ‘ansible-galaxy’ commands
-The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, install, and remove Roles using commands. It can be used for the following 
 
-#### actions:
-
- * Init: 
- A Role requires various directories and main.yml files. Using the init command you can initialize the base structure of a new Role and save the time required to create directories and files.
-
-* Info:
- With the info command you can see more details about a specific Role.
-
-* Install:
- You can download and install Roles from the Galaxy website using the install command. (Works similar to ‘pip install’ in python)
-
-* List:
- Use list to show the name and version of each Role installed in the roles_path. (Works similar to ‘pip freeze’ in python).
-
-* Remove:
- Use remove to delete a Role from roles_path.
 
 ### README.md  defaults  files  handlers  meta  tasks  templates  tests  vars
 
@@ -229,3 +227,39 @@ The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, ins
 * tests – CI tests to be executed.
 
 * library - Embedding Modules and Plugins in Roles (Not created by init command). If required one can define custom module in python in this folder and use it in the tasks.
+### The ‘ansible-galaxy’ commands
+The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, install, and remove Roles using commands. It can be used for the following 
+
+
+![jj](./images/8.png)
+
+#### actions:
+
+ * Init: 
+ A Role requires various directories and main.yml files. Using the init command you can initialize the base structure of a new Role and save the time required to create directories and files.
+
+* Info:
+ With the info command you can see more details about a specific Role.
+
+* Install:
+ You can download and install Roles from the Galaxy website using the install command. (Works similar to ‘pip install’ in python)
+
+* List:
+ Use list to show the name and version of each Role installed in the roles_path. (Works similar to ‘pip freeze’ in python).
+
+* Remove:
+ Use remove to delete a Role from roles_path.
+
+### Ansible Collections
+
+* Ansible collections are distribution format which include roles and modules
+
+#### Collections:
+* collections are a distribution format for Ansible content that can include playbooks, roles, modules, and plugins. You can install and use collections through a distribution server, such as Ansible Galaxy, or a Pulp 3 Galaxy server.
+
+### ansible valut:
+
+* is used to encripted the data (valut used for security purpose)
+
+### What is a Jinja template, and what is the difference between a template and a Jinja template in Ansible?
+
