@@ -26,3 +26,14 @@
     - name: restart apache2
       ansible.builtin.systemd:
         name: apache2
+
+handlers:
+  - name: restart apache2
+    ansible.builtin.systemd:
+      name: apache2
+---
+- name: install php
+  become: yes
+  hosts: all
+  roles:
+  

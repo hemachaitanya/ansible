@@ -1,0 +1,3 @@
+---
+- name: build maven package in spring petclinic
+  become: yes
