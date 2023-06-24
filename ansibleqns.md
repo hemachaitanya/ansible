@@ -137,7 +137,9 @@ We express configuration to acheive a desired state.
 ### configuration drift:
     * difference between desired state and actual state 
 
-### * Why are we using loops concept in Ansible?  
+### * Why are we using loops concept in Ansible? 
+
+* you want to create at a time 
 
 * Sometimes  we  might  need  to  deal  with  multiple  tasks. 
 * For  instance,  Installing  multiple  packages, Creating  many  users,  creation  many  groups. 
@@ -146,4 +148,34 @@ complex process.
  * So, to address this issue, we have a concept of loops.
   * We have to use variables in combination with loops.
 
-###   
+### stats module
+
+*  When we re-execute ansible playbook some modules are executing un-necessarily lets stop that from happening 
+
+### modules:
+ reusable 
+### Reusable Assets in Ansible
+  #### * Ansible playbooks can be reused directly
+  #### import_playbook module
+
+              import module nothing but when we want to install or build some application , dependent component one playbook is placed in  another place , we apply that dependet playbook first prerequisite (or)check first that play book only its exits after application starts o run.
+
+      * Includes a file with a list of plays to be executed.
+
+      * Files with a list of plays can only be included at the top level.
+
+      * You cannot use this action inside a play.
+
+  #### include_playbook module
+
+            Includes a file with a list of tasks to be executed in the current playbook.
+
+    * Lists of tasks can only be included where tasks normally run (in play).
+
+    *   Before Ansible 2.0, all includes were ‘static’ and were executed when the play was compiled.
+
+    * Static includes are not subject to most directives. For example, loops or conditionals are applied instead to each inherited task.
+
+#### stats module
+
+* 
