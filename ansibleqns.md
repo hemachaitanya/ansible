@@ -153,8 +153,10 @@ complex process.
 *  When we re-execute ansible playbook some modules are executing un-necessarily lets stop that from happening 
 
 ### modules:
- reusable 
+  module is nothing but executes statistcal scripts
+
 ### Reusable Assets in Ansible
+
   #### * Ansible playbooks can be reused directly
   #### import_playbook module
 
@@ -175,6 +177,7 @@ complex process.
     *   Before Ansible 2.0, all includes were ‘static’ and were executed when the play was compiled.
 
     * Static includes are not subject to most directives. For example, loops or conditionals are applied instead to each inherited task.
+  #### roles:
 
 ### Why Ansible Roles?
 
@@ -230,7 +233,9 @@ Roles play an important part in breaking the complex Ansible Playbooks, the core
 * tests – CI tests to be executed.
 
 * library - Embedding Modules and Plugins in Roles (Not created by init command). If required one can define custom module in python in this folder and use it in the tasks.
+
 ### The ‘ansible-galaxy’ commands
+
 The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, install, and remove Roles using commands. It can be used for the following 
 
 
@@ -266,3 +271,9 @@ The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, ins
 
 ### What is a Jinja template, and what is the difference between a template and a Jinja template in Ansible?
 
+
+### How do you pass values dynamically when running a playbook in Ansible?
+
+      ansible-playbook -i <vars.yaml> <nginx.yaml> -e <var_name>=<.....>
+
+### 
