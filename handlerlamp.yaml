@@ -3,29 +3,29 @@
   hosts: all
   become: yes
   tasks:
-    - name: install apache2
-      ansible.builtin.apt:
-        name: apache2
-        update_cache: true
-        state: present
-    - name: install phd
-      ansible.builtin.apt:
-        name:
-          - php
-          - libapache2-mod-php
-          - php-mysql
-        update_cache: true
-        state: present
-      notify:
-        - restart apache2
-    - name: copy info.php
-      ansible.builtin.copy:
-        src: info.php
-        dest: /var/www/html/info.php
+- name: install apache2
+  ansible.builtin.apt:
+    name: apache2
+    update_cache: true
+    state: present
+- name: install phd
+  ansible.builtin.apt:
+    name:
+      - php
+      - libapache2-mod-php
+      - php-mysql
+    update_cache: true
+    state: present
+  notify:
+    - restart apache2
+- name: copy info.php
+  ansible.builtin.copy:
+    src: info.php
+    dest: /var/www/html/info.php
   handlers:
-    - name: restart apache2
-      ansible.builtin.systemd:
-        name: apache2
+- name: restart apache2
+  ansible.builtin.systemd:
+    name: apache2
 
 handlers:
   - name: restart apache2

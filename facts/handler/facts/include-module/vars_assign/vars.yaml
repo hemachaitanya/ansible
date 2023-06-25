@@ -1,0 +1,10 @@
+---
+all:
+ children:
+   ubuntu:
+     hosts:
+       172.31.93.194:
+         application_name: nginx
+         true_false: true
+         p_n: present
+         

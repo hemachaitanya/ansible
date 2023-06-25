@@ -221,6 +221,9 @@ Roles play an important part in breaking the complex Ansible Playbooks, the core
 * files - This contains the files which can be deployed via Role.
 
 * templates - Contains templates which can be deployed via Role.
+ #### templet vs jinga templets
+
+ * to write dynamic values is called jinga templet(./j2)
 
 * meta - You can define metadata for the Role in meta. Other Role dependencies, if any, should be mentioned in this file.
 

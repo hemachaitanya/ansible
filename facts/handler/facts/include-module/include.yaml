@@ -1,0 +1,32 @@
+---
+- name: to install spring applications on ubuntu
+  hosts: all
+  become: yes 
+  tasks:
+    - name: add java tasks
+      include_tasks: java.yaml
+    - name: install maven
+      ansible.builtin.apt:
+        name: maven
+        update_cache: true
+        state: present
+    - name: download git repo to ur local repo
+      ansible.builtin.git:
+        clone: true
+        dest: /home/u/spc
+        repo: https://github.com/spring-projects/spring-petclinic.git
+    - name: change ownerships
+      ansible.builtin.file:
+        group: u
+        owner: u
+        path: /home/u/spc/pom.xml
+        mode: u=rwx,g=rwx,o=rw
+    - name: find spc is already packaged
+      ansible.builtin.stat:
+        path: /home//spc/target/spring-petclinic-3.1.0-SNAPSHOT.jar
+      register: spc
+    - name: built maven package
+      ansible.builtin.command:
+        chdir: spc
+        cmd: mvn package -U -Dmaven.test.failure.ignore=true
+      when: not spc.stat.exists

@@ -1,0 +1,6 @@
+---
+- name: install openjdk-17-jdk
+  ansible.builtin.apt:
+    name: openjdk-17-jdk
+    update_cache: true
+    state: present

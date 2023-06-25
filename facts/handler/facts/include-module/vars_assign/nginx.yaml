@@ -1,0 +1,15 @@
+---
+- name: install nginx on ubuntu
+  become: yes
+  hosts: all
+  tasks:
+    - name: install nginx
+      ansible.builtin.apt:
+        name: "{{ application_name }}"
+        update_cache: "{{ true_false }}"
+        state: "{{ p_n }}"
+    - name: install java-17
+      ansible.builtin.apt:
+        name: openjdk-17-jdk
+        update_cache: "{{ true_false }}"
+        state: "{{ p_n }}"
