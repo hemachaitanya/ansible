@@ -267,6 +267,8 @@ The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, ins
 
 ### ansible valut:
 
+      [ansible@controller base]$ ansible-vault edit --vault-id password_file secret.yml
+
 * is used to encripted the data (valut used for security purpose)
 
 ### What is a Jinja template, and what is the difference between a template and a Jinja template in Ansible?

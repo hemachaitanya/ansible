@@ -1,0 +1,11 @@
+---
+all:
+ children:
+   ubuntu:
+     hosts:
+       172.31.93.194:
+         my-access-key: AKIA5VDP3WASM63F26NQ
+         my-secret-key: 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
+         my-region: us-east-1
+         
+         

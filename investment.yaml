@@ -1,0 +1,29 @@
+---
+realestate: 
+  - property: 
+    AssetValue:
+    type:
+    areaInSqft:
+  - property:
+    AssetValue:
+    type:
+    areaInSqft:
+equity:
+  - company: "qt"
+    NumberOfStocks: 3
+    StockIndex: 
+    AvarageStockPrice: 100000
+  - company:
+    NumberOfStocks:
+    StockIndex:
+    AvarageStockPrice:
+MF:
+  - Instrument:
+    number:
+    AvaragePrice:
+FD: 
+  - bank:
+    amount:
+    IntrestRate:
+
+  

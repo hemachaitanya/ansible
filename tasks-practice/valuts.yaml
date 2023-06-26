@@ -1,0 +1,20 @@
+---
+- name: install seacreates from awscli
+  hosts: all
+  become: yes
+  tasks:
+    - name: install awscli from ubuntu
+      ansible.builtin.apt:
+        name: awscli
+        update_cache: true
+        state: present
+    - name: configure the aws secrete key and token
+      - steampunk.aws.ec2_vpc_info:
+        auth:
+          aws_access_key: "{{ my_access_key }}"
+          aws_secret_key: "{{ my_secret_key }}"
+          aws_ec2_region: "{{ my_region }}"
+        register: vpcs
+
+      - ansible.builtin.debug:
+          var: vpcs
