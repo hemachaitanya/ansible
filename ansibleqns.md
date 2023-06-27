@@ -16,9 +16,9 @@ configuration management tool
 
 * ansible is a configuration management tool & default pip3 also installed with ansible
 
-* master: ansible , 
+* master: ansible , salt 
 
-* nodes: agent ,
+* nodes: agent , (chef and puppet)
 
 ###  Working process of Ansible? 
 
