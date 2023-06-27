@@ -1,3 +1,31 @@
+* What is Ansible, and what are its key features?
+* 
+How do you configure Ansible and nodes in a network environment?
+
+Can you explain the concept of a playbook in Ansible?
+
+What is configuration management, and how does Ansible facilitate it?
+
+What is an inventory in Ansible, and how is it used?
+
+Please explain the difference between static and dynamic inventory in Ansible.
+
+What is Ansible Vault, and how is it used to secure sensitive information?
+
+What is a Jinja template, and what is the difference between a template and a Jinja template in Ansible?
+
+Which modules do you commonly use in your organization when working with Ansible?
+
+Can you explain the concepts of roles, tasks, and handlers in Ansible?
+
+How do you configure group inventory in Ansible?
+
+What are modules in Ansible, and how are they used?
+
+Can you provide an overview of Ansible Collections and their significance?
+
+How do you pass values dynamically when running a playbook in Ansible?
+
 ###  What is Ansible? 
 
 * Ansible is one of the configuration Management Tools. It is a method through we automate system admin tasks. 
@@ -76,7 +104,10 @@ It is a module in ansible which gathers nodes information.
 • Push-Pull
 
 ###  Mention some list of sections that we mention in Playbook? 
-play book is a collection of tasks
+
+play book is a collection of tasks . 
+which can be writting in yaml formate .
+yaml is nothing but data representation language , basically it have key:value pairs in yaml.
 
   #### 1. Target section
   * In this section, we mention the group name which contains either IP addresses or Hostnames of nodes.
