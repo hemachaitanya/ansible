@@ -61,12 +61,18 @@ It is a module in ansible which gathers nodes information.
 * Without using playbooks, we can use these Ad-Hoc commands for temporary purpose.  
 
 ###  Differences between Chef and Ansible?  
-• Ansible - chef  
+• Ansible - chef 
+
 • Playbook – Recipe  ( play means collection of tasks )
+
 • Module – Resource  ( )
+
 • Host – Node  
+
 • Setup – Ohai  ( maintaines the node information)
-• Ssh – Knife  
+
+• Ssh – Knife 
+
 • Push-Pull
 
 ###  Mention some list of sections that we mention in Playbook?  
