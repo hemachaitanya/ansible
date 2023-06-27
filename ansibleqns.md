@@ -82,7 +82,11 @@ It is a module in ansible which gathers nodes information.
     * When we execute playbook, then code will be pushed too all nodes which are there in the group that we mention in Target section.
     * We use “all” key word to refer all groups.
 
- #### 2. Task section 
+ #### 2. Task section
+ 
+ * These tasks are specific to that specific playbook and can't be shared with other playbooks.
+ *  This is something you should use roles for.
+   
  * All tasks we mention in this task section. We can mention any no of 
 modules in one playbook. 
 * There is no limit. 
