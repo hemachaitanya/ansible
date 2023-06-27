@@ -75,7 +75,8 @@ It is a module in ansible which gathers nodes information.
 
 • Push-Pull
 
-###  Mention some list of sections that we mention in Playbook?  
+###  Mention some list of sections that we mention in Playbook? 
+play book is a collection of tasks
 
   #### 1. Target section
   * In this section, we mention the group name which contains either IP addresses or Hostnames of nodes.
