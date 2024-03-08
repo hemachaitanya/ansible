@@ -233,8 +233,7 @@ complex process.
 
    < ansible-galaxy install robertdebock.mysql>
 
-    
-    ![hema](./images/7.png)
+![hema](./images/7.png)
 
 
 Roles play an important part in breaking the complex Ansible Playbooks, the core component of any Ansible configuration, into easy to reuse multiple files. 
@@ -280,8 +279,6 @@ Roles play an important part in breaking the complex Ansible Playbooks, the core
 ### The ‘ansible-galaxy’ commands
 
 The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, install, and remove Roles using commands. It can be used for the following 
-
-
 
 ![hema](./images/8.png)
 
