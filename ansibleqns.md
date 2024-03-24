@@ -219,6 +219,7 @@ complex process.
     *   Before Ansible 2.0, all includes were ‘static’ and were executed when the play was compiled.
 
     * Static includes are not subject to most directives. For example, loops or conditionals are applied instead to each inherited task.
+    
   #### roles:
 
 ### Why Ansible Roles?
@@ -227,7 +228,7 @@ complex process.
 
     <ansible-galaxy init <role_name>>
 
-    ![preview](./images/6.png)
+ ![preview](./images/6.png)
 
    * To install role by using these below command
 
