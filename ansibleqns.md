@@ -228,7 +228,7 @@ complex process.
 
     <ansible-galaxy init <role_name>>
 
- ![preview](./images/6.png)
+![preview](./images/6.png)
 
    * To install role by using these below command
 
