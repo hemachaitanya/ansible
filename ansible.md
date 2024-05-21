@@ -16,7 +16,7 @@ Sudo systemctl restart sshd
 
 Su hema
 
-Ssh <privateip>
+Ssh privateip
 
 ## vm-2(master)
 
@@ -44,11 +44,11 @@ ansible --version
 
 Ssh-keygen
 
-Ssh-copy-id hema@<privateip> ( ssh rrr@172.31.0.194)
+Ssh-copy-id hema@privateip ( ssh rrr@172.31.0.194)
 
 Exit 
 
-Echo <private-ip> > inventory
+Echo private-ip >> inventory
 
 Cat inventory
 
@@ -60,9 +60,9 @@ Vi hosts  (enter private ip of node)
 
 ssh-copy-id <username>@public-ip-of-the-slave
 
-Vi <.yaml>
+Vi file.yaml
 
-Ansible-playbook -i hosts –syntax-check <name.yaml>
+Ansible-playbook -i hosts –syntax-check name.yaml
 
 
 
