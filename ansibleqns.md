@@ -179,7 +179,28 @@ We express configuration to acheive a desired state.
 ### configuration drift:
     * difference between desired state and actual state 
 
-### * Why are we using loops concept in Ansible? 
+###  Why are we using loops concept in Ansible? 
+
+```yaml
+---
+- name: Install packages
+  hosts: all
+  become: yes
+
+  vars:
+    packages_to_install:
+      - apache2
+      - mysql-server
+      - php
+
+  tasks:
+    - name: Install packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages_to_install }}"
+```
+
 
 * you want to create at a time 
 
