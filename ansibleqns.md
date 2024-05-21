@@ -213,6 +213,34 @@ complex process.
 
 ### stats module
 
+```yaml
+---
+- name: Gather statistics
+  hosts: all
+  tasks:
+    - name: Task 1
+      command: echo "Task 1 executed successfully."
+      register: task1_result
+
+    - name: Task 2 (intentionally fails)
+      command: /bin/false
+      ignore_errors: true
+      register: task2_result
+
+    - name: Task 3
+      command: echo "Task 3 executed successfully."
+      register: task3_result
+
+    - name: Update statistics
+      stats:
+        increment: "{{ 'task_' + item.result | default('failed') }}"
+      loop:
+        - "{{ task1_result }}"
+        - "{{ task2_result }}"
+        - "{{ task3_result }}"
+
+```
+
 *  When we re-execute ansible playbook some modules are executing un-necessarily lets stop that from happening 
 
 ### modules:
