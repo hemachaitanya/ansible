@@ -8,9 +8,8 @@
         name: awscli
         update_cache: true
         state: present
-    - name: configure the aws secrete key and token
-      copy:
-        src: 
-        
-        
+    - name: copy the iamuser credentials
+      ansible.builtin.copy:
+        src: r.sh
+        dest: /home/r/r.sh
         

@@ -120,6 +120,95 @@ List of nodes (inventory)
 * (1) push based configuration management
 * (2) pull based configuration management
 
+### Ansible commands 
+
+
+```text
+
+ansible --version
+
+ansible -m ping all
+
+ansible all --list-hosts
+
+ansible all -m command -a "uptime"
+
+ansible all -i inventory_file -m png
+
+ansible-playbook -i <inventaryfile/path> --syntax-check </playbook/path>
+
+ansible webservers -m ping
+
+ansible all -m command -a "ls /var/log"
+
+ansible all -m shell -a "echo $TERM"
+
+ansible all -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+
+ansible all -m file -a "path=/tmp/test mode=600 state=touch"
+
+ansible all -m ping -vvv
+
+ansible all -m ping --private-key=~/.ssh/private_key
+
+ansible-vault create secret.yml
+
+ansible-vault encrypt secret.yml
+
+ansible-vault decrypt secret.yml
+
+ansible-vault edit secret.yml
+
+ansible-vault view secret.yml
+
+ansible-playbook playbook.yml --ask-vault-pass
+
+ansible-playbook playbook.yml --ask-vault-pass
+
+
+```yaml
+- hosts: webservers
+  vars:
+    http_port: 80
+  tasks:
+    - name: Ensure Apache is installed
+      yum:
+        name: httpd
+        state: present
+```
+
+ansible-playbook playbook.yml -e "http_port=80"
+
+ansible-playbook playbook.yml --ask-pass
+
+ansible-playbook playbook.yml --ask-become-pass
+
+ansible-playbook playbook.yml -u username --ask-pass
+
+ansible-playbook playbook.yml -b --become-user=root --ask-become-pass
+
+ansible-galaxy init role_name
+
+ansible-galaxy init role_name
+
+ansible-galaxy list
+
+ansible all -m ping -u username
+
+ansible all -m ping -b
+
+
+
+
+
+
+
+
+
+
+
+
+```
 ###  What is Idempotency? 
 
 #### idempotence: 

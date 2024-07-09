@@ -1,26 +1,3 @@
-[Unit]
-Description=Game of Life
-After=network.target
-
-[Service]
-User=c
-WorkingDirectory=/home/c/gol/gameoflife-web/target/gameoflife.war
-ExecStart=mvn jetty:run
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-
-
-
-
-
----
-
- - name: copy the service file
-   ansibe.builtin.copy:
-     src: service.yaml
-     dest: /home/c/gol.service
- - name: run the package
-   ansile.builtin.shell:
-     cmd: mvn jetty:run
+chaitu
+hema
+eee
