@@ -1,36 +1,70 @@
 ### ANSIBLE
 * Vm-1(node)
+
 * Sudo apt update
+
 Sudo adduser hema
+
 For redaht ( sudo passwd <adduser name>)
 
+
 Sudo vi /etc/ssh/sshd_config
+
 Sudo vi /etc/sudoers
+
 Sudo systemctl restart sshd
+
 Su hema
-Ssh <privateip>
-vm-2(master)
+
+Ssh privateip
+
+## vm-2(master)
+
 Sudo apt update
+
 Sudo adduser hema
+
 Sudo vi /etc/ssh/sshd_config
+
 Sudo vi /etc/sudoers
+
 Sudo systemctl restart sshd
+
 Su hema
+
 sudo apt update
+
 sudo apt install software-properties-common
+
 sudo add-apt-repository --yes --update ppa:ansible/ansible
+
 sudo apt install ansible -y
+
 ansible --version
+
 Ssh-keygen
-Ssh-copy-id hema@<privateip> ( ssh rrr@172.31.0.194)
+
+Ssh-copy-id hema@privateip ( ssh rrr@172.31.0.194)
+
 Exit 
-Echo <private-ip> > inventory
+
+Echo private-ip >> inventory
+
 Cat inventory
+
 ansible -i inventory -m ping all
+
 pwd(/home/useradd)
+
 Vi hosts  (enter private ip of node)
-Vi <.yaml>
-Ansible-playbook -i hosts –sysntax-check <name.yaml>
+
+ssh-copy-id <username>@public-ip-of-the-slave
+
+Vi file.yaml
+
+Ansible-playbook -i hosts –syntax-check name.yaml
+
+
 
 ### ansible facts
 

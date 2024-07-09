@@ -1,3 +1,31 @@
+* What is Ansible, and what are its key features?
+* 
+How do you configure Ansible and nodes in a network environment?
+
+Can you explain the concept of a playbook in Ansible?
+
+What is configuration management, and how does Ansible facilitate it?
+
+What is an inventory in Ansible, and how is it used?
+
+Please explain the difference between static and dynamic inventory in Ansible.
+
+What is Ansible Vault, and how is it used to secure sensitive information?
+
+What is a Jinja template, and what is the difference between a template and a Jinja template in Ansible?
+
+Which modules do you commonly use in your organization when working with Ansible?
+
+Can you explain the concepts of roles, tasks, and handlers in Ansible?
+
+How do you configure group inventory in Ansible?
+
+What are modules in Ansible, and how are they used?
+
+Can you provide an overview of Ansible Collections and their significance?
+
+How do you pass values dynamically when running a playbook in Ansible?
+
 ###  What is Ansible? 
 
 * Ansible is one of the configuration Management Tools. It is a method through we automate system admin tasks. 
@@ -16,9 +44,9 @@ configuration management tool
 
 * ansible is a configuration management tool & default pip3 also installed with ansible
 
-* master: ansible , 
+* master: ansible , salt 
 
-* nodes: agent ,
+* nodes: agent , (chef and puppet)
 
 ###  Working process of Ansible? 
 
@@ -61,22 +89,36 @@ It is a module in ansible which gathers nodes information.
 * Without using playbooks, we can use these Ad-Hoc commands for temporary purpose.  
 
 ###  Differences between Chef and Ansible?  
-• Ansible - chef  
+• Ansible - chef 
+
 • Playbook – Recipe  ( play means collection of tasks )
+
 • Module – Resource  ( )
+
 • Host – Node  
+
 • Setup – Ohai  ( maintaines the node information)
-• Ssh – Knife  
+
+• Ssh – Knife 
+
 • Push-Pull
 
-###  Mention some list of sections that we mention in Playbook?  
+###  Mention some list of sections that we mention in Playbook? 
+
+play book is a collection of tasks . 
+which can be writting in yaml formate .
+yaml is nothing but data representation language , basically it have key:value pairs in yaml.
 
   #### 1. Target section
   * In this section, we mention the group name which contains either IP addresses or Hostnames of nodes.
     * When we execute playbook, then code will be pushed too all nodes which are there in the group that we mention in Target section.
     * We use “all” key word to refer all groups.
 
- #### 2. Task section 
+ #### 2. Task section
+ 
+ * These tasks are specific to that specific playbook and can't be shared with other playbooks.
+ *  This is something you should use roles for.
+   
  * All tasks we mention in this task section. We can mention any no of 
 modules in one playbook. 
 * There is no limit. 
@@ -226,7 +268,28 @@ We express configuration to acheive a desired state.
 ### configuration drift:
     * difference between desired state and actual state 
 
-### * Why are we using loops concept in Ansible? 
+###  Why are we using loops concept in Ansible? 
+
+```yaml
+---
+- name: Install packages
+  hosts: all
+  become: yes
+
+  vars:
+    packages_to_install:
+      - apache2
+      - mysql-server
+      - php
+
+  tasks:
+    - name: Install packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages_to_install }}"
+```
+
 
 * you want to create at a time 
 
@@ -238,6 +301,34 @@ complex process.
   * We have to use variables in combination with loops.
 
 ### stats module
+
+```yaml
+---
+- name: Gather statistics
+  hosts: all
+  tasks:
+    - name: Task 1
+      command: echo "Task 1 executed successfully."
+      register: task1_result
+
+    - name: Task 2 (intentionally fails)
+      command: /bin/false
+      ignore_errors: true
+      register: task2_result
+
+    - name: Task 3
+      command: echo "Task 3 executed successfully."
+      register: task3_result
+
+    - name: Update statistics
+      stats:
+        increment: "{{ 'task_' + item.result | default('failed') }}"
+      loop:
+        - "{{ task1_result }}"
+        - "{{ task2_result }}"
+        - "{{ task3_result }}"
+
+```
 
 *  When we re-execute ansible playbook some modules are executing un-necessarily lets stop that from happening 
 
@@ -266,6 +357,7 @@ complex process.
     *   Before Ansible 2.0, all includes were ‘static’ and were executed when the play was compiled.
 
     * Static includes are not subject to most directives. For example, loops or conditionals are applied instead to each inherited task.
+    
   #### roles:
 
 ### Why Ansible Roles?
@@ -274,13 +366,13 @@ complex process.
 
     <ansible-galaxy init <role_name>>
 
-    ![preview](./images/6.png)
+![preview](./images/6.png)
 
    * To install role by using these below command
 
    < ansible-galaxy install robertdebock.mysql>
 
-    ![ppp](./images/7.png)
+![hema](./images/7.png)
 
 
 Roles play an important part in breaking the complex Ansible Playbooks, the core component of any Ansible configuration, into easy to reuse multiple files. 
@@ -327,8 +419,7 @@ Roles play an important part in breaking the complex Ansible Playbooks, the core
 
 The ‘ansible-galaxy’ command comes bundled with Ansible. You can create, install, and remove Roles using commands. It can be used for the following 
 
-
-![jj](./images/8.png)
+![hema](./images/8.png)
 
 #### actions:
 
