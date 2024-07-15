@@ -1,3 +1,43 @@
+*Here are some essential Ansible commands for a DevOps engineer* :
+```
+
+_*Inventory Management*_
+
+1. `ansible-inventory` - Manage inventory files
+2. `ansible-inventory --list` - List all hosts in the inventory
+3. `ansible-inventory --host <hostname>` - Show detailed information about a host
+
+_*Playbook Execution*_
+
+1. `ansible-playbook <playbook_name>.yml` - Run a playbook
+2. `ansible-playbook --list-tasks <playbook_name>.yml` - List all tasks in a playbook
+3. `ansible-playbook --start-at-task <task_name> <playbook_name>.yml` - Start executing a playbook from a specific task
+
+_*Ad-Hoc Commands*_
+
+1. `ansible <host_pattern> -m <module_name>` - Run an ad-hoc command
+2. `ansible <host_pattern> -m command -a "<command>"` - Run a command on a host
+3. `ansible <host_pattern> -m shell -a "<command>"` - Run a shell command on a host
+
+_*Module Management*_
+
+1. `ansible-doc <module_name>` - Show documentation for a module
+2. `ansible-doc -l` - List all available modules
+3. `ansible-galaxy <module_name>` - Install a module from Ansible Galaxy
+
+_*Role Management*_
+
+1. `ansible-galaxy install <role_name>` - Install a role from Ansible Galaxy
+2. `ansible-galaxy list` - List all installed roles
+3. `ansible-galaxy remove <role_name>` - Remove a role
+
+_*Other*_
+
+1. `ansible --version` - Show Ansible version
+2. `ansible-config` - Manage Ansible configuration files
+3. `ansible-vault` - Manage encrypted variables and files
+
+```
 * What is Ansible, and what are its key features?
 * 
 How do you configure Ansible and nodes in a network environment?
