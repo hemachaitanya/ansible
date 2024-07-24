@@ -1,3 +1,5 @@
+[link of alla commands](https://dev.to/prodevopsguytech/terraform-commands-from-beginner-to-advanced-for-devops-engineers-17n5)
+
 *Here are some essential Ansible commands for a DevOps engineer* :
 ```
 
