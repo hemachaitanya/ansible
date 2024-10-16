@@ -1,3 +1,55 @@
+### Here is a basic Ansible playbook example to delete a specific user. The playbook will be executed on the target hosts to remove the desired user.
+
+#### Step 1: Create the Playbook
+
+Create a file called delete_user.yml for your Ansible playbook.
+
+```yaml
+- name: Delete a specific user on multiple hosts
+  hosts: all
+  become: true
+  vars:
+    user_to_delete: "username"  # Replace 'username' with the actual username to delete
+
+  tasks:
+    - name: Check if the user exists
+      ansible.builtin.shell: id {{ user_to_delete }}
+      register: user_check
+      ignore_errors: true
+
+    - name: Delete the user if it exists
+      ansible.builtin.user:
+        name: "{{ user_to_delete }}"
+        state: absent
+      when: user_check.rc == 0
+
+    - name: Remove user's home directory (optional)
+      ansible.builtin.file:
+        path: "/home/{{ user_to_delete }}"
+        state: absent
+      when: user_check.rc == 0
+```
+      
+#### Step 2: How It Works
+hosts: all: This indicates that the playbook will run on all hosts defined in your Ansible inventory.
+
+become: true: Elevates privileges to root to allow user deletion.
+
+vars: This defines a variable user_to_delete, which you can set dynamically or hardcode for a specific user.
+
+id {{ user_to_delete }}: This checks if the user exists on the system.
+
+ansible.builtin.user: If the user exists, this task deletes the user.
+
+ansible.builtin.file: This optionally deletes the user's home directory.
+
+### Step 3: Run the Playbook
+
+To run the playbook, use the following command, replacing username with the actual user to delete:
+
+
+     ansible-playbook delete_user.yml -e "user_to_delete=username"
+
 [link of alla commands](https://dev.to/prodevopsguytech/terraform-commands-from-beginner-to-advanced-for-devops-engineers-17n5)
 
 *Here are some essential Ansible commands for a DevOps engineer* :
